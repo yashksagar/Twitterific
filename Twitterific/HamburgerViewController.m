@@ -67,15 +67,12 @@
 
 -(void)swipeLeft:(UISwipeGestureRecognizer*)gestureRecognizer
 {
-    //Do what you want here
     [self closeMenu];
     
 }
 
 -(void)swipeRight:(UISwipeGestureRecognizer*)gestureRecognizer
 {
-    //Do what you want here
-    
     [self openMenu];
 }
 
@@ -117,6 +114,9 @@
     [self.currentVC didMoveToParentViewController:self];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.menuTableView.bounds.size.height / 4;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
@@ -132,6 +132,9 @@
     } else if (indexPath.row == 2) {
         cell.textLabel.text = @"My Mentions";
     }
+    
+    cell.backgroundColor = [UIColor colorWithWhite:0.2 alpha:1];
+    cell.textLabel.textColor = [UIColor whiteColor];
 
     return cell;
 }
@@ -140,9 +143,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row < 3) {
-        // add new
         self.currentVC = self.viewControllers[indexPath.row];
-        
         [self setNewContentController];
     }
 }

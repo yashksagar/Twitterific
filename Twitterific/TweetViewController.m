@@ -61,7 +61,7 @@
     if ([self.tweet.favorited  isEqual: @1]) {
         NSLog(@" favorited! ");
         self.favIcon.image = [self.favIcon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self.favIcon setTintColor: [UIColor colorWithRed:(255/255.0) green:(204/255.0) blue:(7/255.0) alpha:1]];
+        [self.favIcon setTintColor: [UIColor colorWithRed:(255/255.0) green:(204/255.0) blue:(65/255.0) alpha:1]];
     }
 }
 

@@ -627,7 +627,7 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.25253513272714662" green="0.26476362179487178" blue="0.25386749566388467" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMa-jv-PIi" userLabel="Current View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
