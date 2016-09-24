@@ -1,6 +1,6 @@
 # Project 3 - *Twitterific*
 
-**Twitterific** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com).
+**Twitterific** is a basic twitter app to read and compose tweets using the [Twitter API](https://apps.twitter.com).
 
 Time spent: **22** hours spent in total
 
