@@ -1,0 +1,6 @@
+framework module Pods_Twitterific {
+  umbrella header "Pods-Twitterific-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "TwitterClient.h"
+#import "BDBOAuth1RequestOperationManager.h"
+#import "LoginViewController.h"
+#import "User.h"
+#import "Tweet.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +22,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogout) name:@"UserLogoutNotification" object:nil];
+    UIViewController *vc;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    if ([User getCurrentUser] != nil) {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"HamburgerViewController"];
+    } else {
+        vc = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    }
+    
+    self.window.rootViewController = vc;
+    
     return YES;
 }
 
@@ -42,4 +60,17 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options {
+    
+    [[TwitterClient sharedInstance] openUrl:url];
+
+    return YES;
+}
+
+- (void) userLogout {
+    NSLog(@"show login screen");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  
+    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+}
 @end
